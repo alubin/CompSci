@@ -1,4 +1,10 @@
+package string;
 
+/** 
+ * 
+ * @author AL
+ *
+ */
 public class StringShortening {
 
 	public static void main(String[] args) {

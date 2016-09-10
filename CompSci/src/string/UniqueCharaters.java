@@ -9,18 +9,53 @@ public class UniqueCharaters {
 		String word1 = "apple";
 		String word2 = "berry";
 		String word3 = "tacky";
+		String word4 = "active";
 		
-		String results[] = {word1, word2, word3};
+		String results[] = {word1, word2, word3, word4};
 		
 		for(String word: results)
 		{
 			System.out.println("For : " + word);
 			System.out.println("Contains only unique characters with struct " + (uniqueCharWithStruct(word)));
 			System.out.println("Contains only unique characters with struct 2 " + (uniqueCharWithStruct2(word)) + '\n');
+			System.out.println("Contains only unique characters with binary man " + (uniqueBin(word)) + '\n');
 		}
 		
 
 
+	}
+	/**
+	 * This function was taken from the Career cup book. 
+	 * @param word
+	 * @return
+	 */
+	private static final boolean uniqueBin(String word)
+	{
+		//TODO:Study and fully understand this function.
+		//Checking against the value in the ASCII Table.
+		if(word.length() > 128)
+		{
+			return false;
+		}
+		int checker = 0;
+		//Need to iterate trough every character in the string.
+		for(int i = 0; i < word.length(); i++)
+		{
+			//create a lookup value
+			int hashValue = word.charAt(i) - 'a';
+			//will check there is any value at that location. 
+			//The & operation will return false if the "|" operation hasn't put a value that will properly cause the "&" case to trigger.
+			if((checker & (1 << hashValue)) > 0)
+			{
+				//A value was found so, it must have been used before.
+				return false;
+			}
+			//Puts a value into that location if none was found.
+			checker = checker | (1 << hashValue);
+			System.out.println("Checker = " + checker);
+			
+		}
+		return true;
 	}
 	
 	/**
