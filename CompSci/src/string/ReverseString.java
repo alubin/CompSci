@@ -4,6 +4,9 @@
 package string;
 
 /**
+ * Reversing the string using a character array. 
+ * This could also be done using recursion where the string is pushed till size 1, and then popped and printed and reversed order.
+ * Didn't go with recursion because a really long string would cause a stack over flow. 
  * @author AL
  *
  */
@@ -51,5 +54,6 @@ public class ReverseString {
 	{
 		return reverse(word.toCharArray());
 	}
+	
 
 }
